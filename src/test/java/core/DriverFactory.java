@@ -14,9 +14,17 @@ public class DriverFactory {
     }
 
     public static WebDriver createDriver(String browser) {
-        // WebDriverManager сам скачивает chromedriver под версию браузера
-        // и прописывает webdriver.chrome.driver за нас
-        WebDriverManager.chromedriver().setup();
+        if (DriverConfig.BROWSER_YANDEX.equals(browser)) {
+            // у Яндекс Браузера свой движок Chromium (не той версии, что у Chrome) —
+            // поэтому для Яндекса явно указываем версию его движка
+            WebDriverManager.chromedriver()
+                    .browserVersion(DriverConfig.YANDEX_CHROMIUM_VERSION)
+                    .setup();
+        } else {
+            // WebDriverManager сам скачивает chromedriver под версию Chrome
+            // и прописывает webdriver.chrome.driver за нас
+            WebDriverManager.chromedriver().setup();
+        }
 
         ChromeOptions options = new ChromeOptions();
         // Яндекс Браузер работает на Chromium, поэтому драйвер тот же (chromedriver),

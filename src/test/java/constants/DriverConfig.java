@@ -19,6 +19,12 @@ public class DriverConfig {
     public static final String YANDEX_BINARY =
             "C:\\Program Files\\Yandex\\YandexBrowser\\Application\\browser.exe";
 
+    /** Версия движка Chromium в Яндекс Браузере (не совпадает с версией Chrome!).
+     *  У Яндекса движок 150.0.7871.811, но в репозитории Chrome-for-Testing его нет —
+     *  берём ближайшую опубликованную сборку 150.0.7871.124 (chromedriver проверяет
+     *  только мажорную версию 150). Обновлять при обновлении браузера. */
+    public static final String YANDEX_CHROMIUM_VERSION = "150.0.7871.124";
+
     /** Неявное ожидание при поиске элементов, секунд */
     public static final int IMPLICIT_WAIT_SECONDS = 5;
 
