@@ -3,12 +3,13 @@ package pageObjects;
 import constants.UrlConstants;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
 public class MainPage {
     private final WebDriver driver;
@@ -91,8 +92,14 @@ public class MainPage {
     }
 
     public boolean isOrderButtonVisible() {
-        List<WebElement> buttons = driver.findElements(orderButton);
-        return !buttons.isEmpty() && buttons.get(0).isDisplayed();
+        // после входа главная перезагружается — ждём появления кнопки до 10 секунд
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOfElementLocated(orderButton));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 }
 
