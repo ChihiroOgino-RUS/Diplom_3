@@ -1,6 +1,6 @@
 package client;
 
-import constants.ApiConstants;
+import constants.UrlConstants;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import model.UserModel;
@@ -14,7 +14,7 @@ public class StellarBurgersClient {
                 .header("Content-Type", "application/json")
                 .body(user)
                 .when()
-                .post(ApiConstants.BASE_URL + ApiConstants.USER_REGISTER_PATH);
+                .post(UrlConstants.USER_REGISTER_URL);
     }
 
     @Step("Удаление пользователя")
@@ -22,6 +22,6 @@ public class StellarBurgersClient {
         return given()
                 .header("Authorization", token)
                 .when()
-                .delete(ApiConstants.BASE_URL + ApiConstants.USER_DELETE_PATH);
+                .delete(UrlConstants.USER_DELETE_URL);
     }
 }

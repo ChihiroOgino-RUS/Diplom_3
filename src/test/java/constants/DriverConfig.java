@@ -1,21 +1,19 @@
 package constants;
 
-/**
- * Конфигурация драйверов: все значения вынесены сюда,
- * чтобы настраивать браузеры и ожидания в одном месте.
- */
+// Конфигурация драйверов: все значения вынесены сюда, * чтобы настраивать браузеры и ожидания в одном месте.
+
 public class DriverConfig {
 
-    /** Значение системного свойства -Dbrowser для Google Chrome */
+    // Значение системного свойства -Dbrowser для Google Chrome
     public static final String BROWSER_CHROME = "chrome";
 
-    /** Значение системного свойства -Dbrowser для Яндекс Браузера */
+    // Значение системного свойства -Dbrowser для Яндекс Браузера
     public static final String BROWSER_YANDEX = "yandex";
 
-    /** Имя системного свойства, в котором передаётся браузер */
+    // Имя системного свойства, в котором передаётся браузер
     public static final String BROWSER_PROPERTY = "browser";
 
-    /** Путь к исполняемому файлу Яндекс Браузера на этой машине */
+    // Путь к исполняемому файлу Яндекс Браузера на этой машине
     public static final String YANDEX_BINARY =
             "C:\\Program Files\\Yandex\\YandexBrowser\\Application\\browser.exe";
 
@@ -25,7 +23,7 @@ public class DriverConfig {
      *  только мажорную версию 150). Обновлять при обновлении браузера. */
     public static final String YANDEX_CHROMIUM_VERSION = "150.0.7871.124";
 
-    /** Неявное ожидание при поиске элементов, секунд */
+    // Неявное ожидание при поиске элементов
     public static final int IMPLICIT_WAIT_SECONDS = 5;
 
     private DriverConfig() {
