@@ -5,7 +5,9 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class MainPage {
@@ -66,15 +68,26 @@ public class MainPage {
     }
 
     public boolean isBunsSectionActive() {
-        return driver.findElement(activeTab).getText().contains("Булки");
+        return waitForActiveTabText("Булки");
     }
 
     public boolean isSaucesSectionActive() {
-        return driver.findElement(activeTab).getText().contains("Соусы");
+        return waitForActiveTabText("Соусы");
     }
 
     public boolean isFillingsSectionActive() {
-        return driver.findElement(activeTab).getText().contains("Начинки");
+        return waitForActiveTabText("Начинки");
+    }
+
+    // ждём, пока у активного таба не появится нужный текст:
+    // пока условие возвращает null — until() продолжает опрос
+    private boolean waitForActiveTabText(String expectedText) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement active = wait.until(d -> {
+            WebElement tab = d.findElement(activeTab);
+            return tab.getText().contains(expectedText) ? tab : null;
+        });
+        return active != null;
     }
 
     public boolean isOrderButtonVisible() {
