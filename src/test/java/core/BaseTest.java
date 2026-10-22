@@ -13,9 +13,8 @@ public abstract class BaseTest {
         initDriver(System.getProperty(DriverConfig.BROWSER_PROPERTY, DriverConfig.BROWSER_CHROME));
     }
 
-    protected void initDriver(String browser) {
+    private void initDriver(String browser) {
         driver = DriverFactory.createDriver(browser);
-        driver.manage().window().maximize();
     }
 
     @After
@@ -23,7 +22,7 @@ public abstract class BaseTest {
         quitDriver();
     }
 
-    protected void quitDriver() {
+    private void quitDriver() {
         if (driver != null) {
             driver.quit();
         }

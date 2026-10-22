@@ -27,6 +27,8 @@ public class DriverFactory {
         }
 
         ChromeOptions options = new ChromeOptions();
+        // окно сразу максимальное — не зависеть от гонки при вызове maximize()
+        options.addArguments("--start-maximized");
         // Яндекс Браузер работает на Chromium, поэтому драйвер тот же (chromedriver),
         // а сам браузер выбираем через путь к исполняемому файлу
         if (DriverConfig.BROWSER_YANDEX.equals(browser)) {
