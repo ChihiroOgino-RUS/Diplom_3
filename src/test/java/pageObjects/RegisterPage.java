@@ -2,8 +2,11 @@ package pageObjects;
 
 import constants.UrlConstants;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class RegisterPage {
     private final WebDriver driver;
@@ -70,6 +73,16 @@ public class RegisterPage {
     }
 
     public String getPasswordErrorText() {
-        return driver.findElement(passwordError).getText();
+        // ждём, пока ошибка отрисуется
+        WebElement error = new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.visibilityOfElementLocated(passwordError));
+        return error.getText();
+    }
+
+    public boolean isLoginPageOpened() {
+        // ждём редиректа после успешной регистрации: null, пока URL не сменился на /login
+        String url = new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(d -> d.getCurrentUrl().contains("/login") ? d.getCurrentUrl() : null);
+        return url != null;
     }
 }
