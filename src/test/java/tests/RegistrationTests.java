@@ -5,7 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import model.UserModel;
 import org.junit.Test;
-import pageObjects.RegisterPage;
+import page.objects.RegisterPage;
 import utils.TestDataGenerator;
 
 import static org.junit.Assert.assertEquals;

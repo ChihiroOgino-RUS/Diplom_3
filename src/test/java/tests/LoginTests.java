@@ -9,9 +9,9 @@ import model.UserModel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pageObjects.ForgotPasswordPage;
-import pageObjects.MainPage;
-import pageObjects.RegisterPage;
+import page.objects.ForgotPasswordPage;
+import page.objects.MainPage;
+import page.objects.RegisterPage;
 import utils.TestDataGenerator;
 
 import static org.junit.Assert.assertTrue;

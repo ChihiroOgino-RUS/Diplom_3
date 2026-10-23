@@ -12,7 +12,4 @@ public class UrlConstants {
     // Эндпоинты API
     public static final String USER_REGISTER_URL = BASE_URL + "/api/auth/register";
     public static final String USER_DELETE_URL = BASE_URL + "/api/auth/user";
-
-    private UrlConstants() {
-    }
 }

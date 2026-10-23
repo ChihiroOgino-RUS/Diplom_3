@@ -4,7 +4,7 @@ import core.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import pageObjects.MainPage;
+import page.objects.MainPage;
 
 import static org.junit.Assert.assertTrue;
 

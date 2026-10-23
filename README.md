@@ -33,7 +33,7 @@ src/test/java/
 │   ├── BaseTest.java                  — жизненный цикл теста (@Before/@After)
 │   └── DriverFactory.java             — создание драйвера для Chrome и Яндекс Браузера
 ├── model/UserModel.java               — модель пользователя
-├── pageObjects/                       — Page Object: MainPage, LoginPage, RegisterPage, ForgotPasswordPage
+├── page/objects/                      — Page Object: MainPage, LoginPage, RegisterPage, ForgotPasswordPage
 ├── tests/                             — RegistrationTests, LoginTests, ConstructorTests
 └── utils/TestDataGenerator.java       — генерация уникальных тестовых данных
 ```
