@@ -9,10 +9,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 public class DriverFactory {
-
-    private DriverFactory() {
-    }
-
     public static WebDriver createDriver(String browser) {
         if (DriverConfig.BROWSER_YANDEX.equals(browser)) {
             // у Яндекс Браузера свой движок Chromium (не той версии, что у Chrome) —

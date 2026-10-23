@@ -3,9 +3,6 @@ package utils;
 import model.UserModel;
 
 public class TestDataGenerator {
-    private TestDataGenerator() {
-    }
-
     public static UserModel createUniqueUser() {
         String uniquePart = String.valueOf(System.currentTimeMillis());
         String email = "testuser" + uniquePart + "@yandex.ru";
