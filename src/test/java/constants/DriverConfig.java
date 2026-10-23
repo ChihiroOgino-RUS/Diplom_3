@@ -25,8 +25,5 @@ public class DriverConfig {
 
     // Неявное ожидание при поиске элементов
     public static final int IMPLICIT_WAIT_SECONDS = 5;
-
-    private DriverConfig() {
-    }
 }
 
